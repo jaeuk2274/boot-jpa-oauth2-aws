@@ -25,29 +25,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 )
 public class HelloControllerTest {
 
-    @Autowired MockMvc mockMvc;
+    @Autowired
+    private MockMvc mvc;
 
     @WithMockUser(roles="USER")
     @Test
-    public void 헬로우_리턴() throws Exception {
+    public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
-        mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk()) // 200 ok
-                .andExpect(content().string(hello)); // 본문 내용 검증
+        mvc.perform(get("/hello"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(hello));
     }
 
+    @WithMockUser(roles="USER")
     @Test
-    public void 헬로우DTO_리턴() throws Exception {
+    public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
 
-        mockMvc.perform(get("/hello/dto")
-                .param("name", name)
-                .param("amount", String.valueOf(amount)))
+        mvc.perform(
+                get("/hello/dto")
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.amount", is(amount)));
-
     }
 }

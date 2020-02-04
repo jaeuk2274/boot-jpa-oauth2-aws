@@ -1,6 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 .gradle
-
-# 원래는 깃에 올라가는 것을 막아야 한다. 하지만 추후 확인을 위해 깃에 일단 올려놓음.
 application-oauth.properties
+# 원래는 깃에 올라가는 것을 막아야 한다. 하지만 추후 확인을 위해 깃에 일단 올려놓음.

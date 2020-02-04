@@ -1,6 +1,8 @@
+- http://ec2-13-124-233-59.ap-northeast-2.compute.amazonaws.com:8080/
 
-#### CI/CD 환경
-- Travis CI
-  - 젠킨스는 설치형이라, EC2 인스턴스가 하나 더 필요하다. 배포를 위한 인스턴스는 부담.
-  
-  
+#### Practice 
+- Spring boot + JPA + OAuth2 (Spring security)-google, naver
+- AWS (EC2, RDS)
+- CI (Travis CI)
+- CD (AWS S3, CodeDeploy)
+- 

@@ -17,9 +17,26 @@ cache :
 # master 브랜치에 푸시되었을 때 수행하는 명령어.
 script: "./gradlew clean build"
 
+# deploy 실행되기 전에 실행
+# CodeDeploy는 jar 파일을 인식하지 못하므로 jar+기타 설정 파일들을 압축
+before_deploy:
+  - zip -r practice-springboot-practice *
+  - mkdir -p deploy
+  - mv practice-springboot-practice.zip deploy/practice-springboot-practice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings 설정된 값
+    bucket: practice-springboot-build # S3 버킷
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip 파일 접근을 private 로 설정
+    local_dir: deploy # before_deploy 에서 설정한 디렉토리
+    wait-until-deployed: true
+
 # CI 실행 완료시 이메일 알람
 notifications:
   email:
     recipients:
       - jaeuk2274@gmail.com
-

@@ -9,7 +9,7 @@ branches:
 
 # 그레이들을 통해 한번 받은 의존성은 캐시하여, 같은 의존성은 다음 배포때부터 받지 않음.
 # Travis CI 서버의 Home
-Cache :
+cache :
   directories
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'

@@ -22,7 +22,7 @@ script: "./gradlew clean build"
 before_deploy:
   - zip -r bootJpaAwsPractice *
   - mkdir -p deploy
-  - mv practice-springboot-practice.zip deploy/practice-springboot-practice.zip
+  - mv bootJpaAwsPractice.zip deploy/bootJpaAwsPractice.zip
 
 deploy:
   - provider: s3

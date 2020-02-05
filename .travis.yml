@@ -33,9 +33,12 @@ deploy:
     bucket: practice-springboot-build # S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
-    acl: private # zip 파일 접근을 private 로 설정
-    local_dir: deploy # before_deploy 에서 설정한 디렉토리
+    acl: public_read
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
+    on:
+      repo: jaeuk2274/bootJpaAwsPractice
+      branch: master
 
 
 # CI 실행 완료시 이메일 알람

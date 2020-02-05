@@ -25,7 +25,7 @@ before_deploy:
   - mkdir -p deploy
   - mv bootJpaAwsPractice.zip deploy/bootJpaAwsPractice.zip
 # boot-jpa-OAuth2-Aws-practice
-#
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings 설정된 값

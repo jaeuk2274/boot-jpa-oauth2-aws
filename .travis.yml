@@ -29,7 +29,7 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings 설정된 값
-    bucket: practice-springboot-build # S3 버킷
+    bucket: test-springboot-build # S3 버킷
     region: ap-northeast-2
     skip_cleanup: true
     acl: private # zip 파일 접근을 private 로 설정

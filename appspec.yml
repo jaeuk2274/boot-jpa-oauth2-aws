@@ -1,9 +1,0 @@
-# AWS CodeDeploy 설정
-
-version: 0.0
-os: linux
-files:
-  -source: / # CodeDeploy에서 전달해 준 파일 중 destination 이동시킬 대상
-  destination: /home/ec2-user/app/step2/zip/ # source에서 준 파일을 받을 위치
-  overwrite: yes
-

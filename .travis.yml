@@ -18,14 +18,13 @@ cache :
 # master 브랜치에 푸시되었을 때 수행하는 명령어.
 script: "./gradlew clean build"
 
-install: travis_wait mvn install
 
 # deploy 실행되기 전에 실행
 # CodeDeploy는 jar 파일을 인식하지 못하므로 jar+기타 설정 파일들을 압축
 before_deploy:
-  - zip -r bootJpaAwsPractice *
-  - mkdir -p deploy
-  - mv bootJpaAwsPractice.zip deploy/bootJpaAwsPractice.zip
+  - - mkdir -p deploy
+  #- zip -r bootJpaAwsPractice *
+  #- mv bootJpaAwsPractice.zip deploy/bootJpaAwsPractice.zip
 
 deploy:
   - provider: s3

@@ -25,6 +25,8 @@ before_deploy:
   - mkdir -p deploy
   - ls
   - chmod +x *
+  - rm -rf build
+  - mkdir -p deploy2
   - zip -r bootJpaAws *
   - mv bootJpaAws.zip deploy/bootJpaAws.zip
 

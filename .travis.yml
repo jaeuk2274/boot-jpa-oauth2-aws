@@ -24,7 +24,7 @@ before_deploy:
   - chmod +x gradlew
   - mkdir -p deploy
   - ls
-  - ll
+  - chmod +x *
   - zip -r bootJpaAws *
   - mv bootJpaAws.zip deploy/bootJpaAws.zip
 

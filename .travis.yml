@@ -23,7 +23,8 @@ script: "./gradlew clean build"
 before_deploy:
   - chmod +x gradlew
   - mkdir -p deploy
-  - chmod +x bootJpaAws
+  - ls
+  - ll
   - zip -r bootJpaAws *
   - mv bootJpaAws.zip deploy/bootJpaAws.zip
 

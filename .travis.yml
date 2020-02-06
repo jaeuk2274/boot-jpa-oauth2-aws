@@ -21,12 +21,10 @@ script: "./gradlew clean build"
 # deploy 실행되기 전에 실행
 # CodeDeploy는 jar 파일을 인식하지 못하므로 jar+기타 설정 파일들을 압축
 before_deploy:
-  - chmod +x gradlew
   - mkdir -p deploy
   - ls
-  - chmod +x *
   - rm -rf build
-  - mkdir -p deploy2
+  - ls
   - zip -r bootJpaAws *
   - mv bootJpaAws.zip deploy/bootJpaAws.zip
 

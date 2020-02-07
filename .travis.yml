@@ -21,9 +21,6 @@ script: "./gradlew clean build"
 # deploy 실행되기 전에 실행
 # CodeDeploy는 jar 파일을 인식하지 못하므로 jar+기타 설정 파일들을 압축
 before_deploy:
-  - ls
-  - rm -rf build
-  - ls
   - tar cvf bootJpaAws.tar *
   #- zip -r bootJpaAws *
   - mkdir -p deploy
@@ -40,6 +37,18 @@ deploy:
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: test-springboot-build # S3 버킷
+    key: bootJpaAws.tar # 빌드 파일을 압축해서 전달
+    bundle_type: tar
+    application: boot-jpa-oauth2-practice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: boot-jpa-oauth2-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
+
 
 # CI 실행 완료시 이메일 알람
 notifications:

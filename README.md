@@ -5,9 +5,7 @@
 - AWS (EC2, RDS)
 - CI (Travis CI)
 - CD (AWS S3, CodeDeploy)
-- 
-
-
+- 무중단 배포 (Nginx)
 
 
 

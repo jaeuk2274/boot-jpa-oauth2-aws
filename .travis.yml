@@ -43,7 +43,8 @@ deploy:
     bucket: test-springboot-build # S3 버킷
     key: bootJpaAwsPractice.tar.gz # 빌드 파일을 압축해서 전달
     bundle_type: tgz
-    application: boot-jpa-oauth2-practice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    #application: boot-jpa-oauth2-practice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    application: bootJpaAwsPractice # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: boot-jpa-oauth2-practice-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true

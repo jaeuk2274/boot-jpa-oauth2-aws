@@ -13,4 +13,6 @@ function switch_proxy() {
 
     echo "> 엔진엑스 Reload"
     sudo service nginx reload
+    # reload 는 restart와 다르다. 끊김 없이 다시 불러온다.
+    # 하지만 중요 설정들은 반영되지 않으므로 restart 사용해야 하는 경우.(여기서는 그냥 설정 파일만 불러오는 거라 상관 없음)
 }

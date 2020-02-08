@@ -18,13 +18,16 @@ cache :
 # master 브랜치에 푸시되었을 때 수행하는 명령어.
 script: "./gradlew clean build"
 
-# deploy 실행되기 전에 실행
-# CodeDeploy는 jar 파일을 인식하지 못하므로 jar+기타 설정 파일들을 압축
+
 before_deploy:
-  - tar zcvf bootJpaAwsPractice.tar.gz *
-  #- tar cvf bootJpaAws.tar *
-  - mkdir -p deploy
-  - mv bootJpaAwsPractice.tar.gz deploy/bootJpaAwsPractice.tar.gz
+  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+  - cp scripts/*.sh before-deploy/
+  - cp appspec.yml before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cd before-deploy && tar zcvf -r before-deploy.tar.gz * # before-deploy로 이동후 전체 압축
+  - cd ../ && mkdir -p deploy # 상위 디렉토리로 이동후 deploy 디렉토리 생성
+  - mv before-deploy/before-deploy.tar.gz deploy/bootJpaAwsPractice.tar.gz # deploy로 zip파일 이동
+
 
 deploy:
   - provider: s3

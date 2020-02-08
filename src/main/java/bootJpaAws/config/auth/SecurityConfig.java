@@ -34,3 +34,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 리소스 서버(소셜 서비스 등) 에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능들을 명시 가능
     }
 }
+
